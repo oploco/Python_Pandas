@@ -20,7 +20,7 @@ list_of_dicts = [
 ]
 df = pd.DataFrame(list_of_dicts)
 
-#df.set_index(df['date'])
+df.set_index(df['date'])
 df['date'] = pd.to_datetime(df['date'])
 df['last_friday'] = df['date'].apply(lambda x: x + relativedelta(weekday=FR(-1)))
 df['last_monday'] = df['date'].apply(lambda x: x + relativedelta(weekday=MO(-1)))

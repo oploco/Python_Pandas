@@ -21,21 +21,28 @@ try:
     df.set_index(df['fechaF'])
 
     plt.style.use('fivethirtyeight')
+    fig, ax = plt.subplots(figsize=(15, 6))
+    labels = ax.get_xticklabels()
 
-    plt.figure(figsize=(15, 6))
-    plt.title("Zonas de bajas emisiones: Mediciones de Sonómetros")
+    # plt.figure(figsize=(15, 6))
+    ax.set_title("Zonas de bajas emisiones: Mediciones de Sonómetros")
 
     """ plt.subplot(131)
     plt.bar(df['fechaF'], df['val']) """
 
     # plt.subplot(132)
-    plt.scatter(df['fechaF'], df['val'], s=df['val'], c=df['cana'], alpha=0.5)
-    # plt.legend(df['cana'])
-    plt.grid(True)
+    ax.scatter(df['fechaF'], df['val'], s=df['val'], c=df['cana'], alpha=0.5)
 
-    plt.xlabel("fecha")
-    plt.ylabel("valor")
-    plt.legend(df['cana'])
+    ax.set_xlabel("fecha")
+    ax.set_ylabel("valor")
+
+    labels = ax.get_xticklabels()
+    plt.setp(labels, rotation=45, horizontalalignment='right')
+
+    ax.grid(True)
+    ax.legend()
+
+    print("labels", labels)
 
     """ plt.subplot(133)
     plt.plot(df['fechaF'], df['val']) """

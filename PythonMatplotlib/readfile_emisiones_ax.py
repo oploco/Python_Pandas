@@ -60,8 +60,6 @@ try:
     ax.xaxis.set_major_formatter(date_formatter)
 
     ax.grid(True)
-
-
 except ValueError:
     print(f"W: {time.time()} :: EXCEPTION!", df)
 

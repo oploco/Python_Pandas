@@ -50,7 +50,7 @@ def animate(i, xs, ys, limit=PLOT_LIMIT, verbose=False):
         # Draw x and y lists
         ax.clear()
         ax.set_ylim([0, 1])
-        ax.plot(xs, ys)
+        ax.plot(xs, ys,marker='o',linestyle='-.')
         print("else")
 
 

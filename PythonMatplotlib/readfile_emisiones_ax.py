@@ -45,6 +45,12 @@ try:
                  )
 
     ax.scatter(df['fechaF'], df['val'], s=df['val'], c=df['cana'], alpha=0.8)
+    #df.plot(kind='bar',x='fechaF',y ='cana')
+
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    legend = ax.legend(loc='upper center', shadow=True, fontsize='x-large')
+
+    print("legend     ",ax.get_legend())
 
     ax.set_xlabel("fecha")
     ax.set_ylabel("valor")
@@ -54,7 +60,7 @@ try:
     ax.xaxis.set_major_formatter(date_formatter)
 
     ax.grid(True)
-    ax.legend(df['cana'])
+
 
 except ValueError:
     print(f"W: {time.time()} :: EXCEPTION!", df)

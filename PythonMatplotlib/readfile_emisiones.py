@@ -26,7 +26,7 @@ try:
     plt.title("Zonas de bajas emisiones: Mediciones de Sonómetros")
 
     plt.subplot(131)
-    plt.bar(df['fechaF'], df['val'])
+    plt.bar(df['fechaF'], df['val'],data=df)
 
     plt.subplot(132)
     plt.scatter(df['fechaF'], df['val'], s=df['val'], c=df['cana'], alpha=0.5)

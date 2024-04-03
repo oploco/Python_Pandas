@@ -46,7 +46,6 @@ print("Coefficient of determination: %.2f" % r2_score(diabetes_y_test, diabetes_
 # Plot outputs
 plt.scatter(diabetes_X_test, diabetes_y_test, color="black")
 
-
 plt.plot(diabetes_X_test, diabetes_y_pred, color="blue", linewidth=3)
 
 #maquetar

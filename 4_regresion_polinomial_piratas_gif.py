@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 import imageio
 import os
+from sklearn.metrics import mean_squared_error
 
 # Datos ficticios para ilustrar la relación inversa entre temperatura y cantidad de piratas
 temperatura = np.array([20, 23, 24, 25, 26]).reshape(-1, 1)  # Ejemplo de temperatura (en grados Celsius)
@@ -19,11 +20,12 @@ def generar_grafico(temperatura, cantidad_piratas, iteracion):
     imagen_fondo = plt.imread('C:\\Users\\Mañanas\\pictures\\fondo_pirata.jpg')
     plt.imshow(imagen_fondo,
                extent=[np.min(temperatura), np.max(temperatura), np.min(cantidad_piratas), np.max(cantidad_piratas)],
-               aspect='auto', alpha=0.3)
+               aspect='auto', alpha=0.2)
     # Agregar etiquetas y título
     plt.title(f'Correlación entre temperatura y cantidad de piratas(Iteración {iteracion})')
     plt.xlabel('Cantidad de piratas')
     plt.ylabel('Temperatura (°C)')
+    plt.text(0.5, -0.5, f'RMSE: {rmse:.2f}', ha='center')
 
     plt.legend()
     plt.grid(True)
@@ -56,6 +58,9 @@ modelolineal = LinearRegression()
 modelolineal.fit(temperatura, cantidad_piratas)
 prediccion_piratas = modelolineal.predict(temperatura)
 
+# Calculamos el RMSE
+rmse = np.sqrt(mean_squared_error(cantidad_piratas, prediccion_piratas))
+print("RMSE:", rmse)
 
 ###
 # Crear una carpeta temporal para almacenar las imágenes
